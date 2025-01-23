@@ -108,7 +108,7 @@ function CarouselNavigation({
                 type='button'
                 aria-label='Previous slide'
                 className={cn(
-                    'pointer-events-auto h-fit w-fit rounded-full p-2 transition-opacity duration-300 bg-zinc-950',
+                    'pointer-events-auto h-fit w-fit rounded-full p-2 transition-opacity duration-300 bg-theme-one',
                     alwaysShow
                         ? 'opacity-100'
                         : 'opacity-0 group-hover/hover:opacity-100',
@@ -125,14 +125,14 @@ function CarouselNavigation({
                 }}
             >
                 <ChevronLeft
-                    className='stroke-zinc-50'
+                    className='stroke-black'
                     size={16}
                 />
             </button>
             <button
                 type='button'
                 className={cn(
-                    'pointer-events-auto h-fit w-fit rounded-full p-2 transition-opacity duration-300 bg-zinc-950',
+                    'pointer-events-auto h-fit w-fit rounded-full p-2 transition-opacity duration-300 bg-theme-one',
                     alwaysShow
                         ? 'opacity-100'
                         : 'opacity-0 group-hover/hover:opacity-100',
@@ -150,7 +150,7 @@ function CarouselNavigation({
                 }}
             >
                 <ChevronRight
-                    className='stroke-zinc-50'
+                    className='stroke-black'
                     size={16}
                 />
             </button>
@@ -182,8 +182,8 @@ function CarouselIndicator({
                         className={cn(
                             'h-2 w-2 rounded-full transition-opacity duration-300',
                             index === i
-                                ? 'bg-zinc-950 dark:bg-zinc-50'
-                                : 'bg-zinc-900/50 dark:bg-zinc-100/50',
+                                ? 'bg-theme-one'
+                                : 'bg-theme-one/50',
                             classNameButton
                         )}
                     />

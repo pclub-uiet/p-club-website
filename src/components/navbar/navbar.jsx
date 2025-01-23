@@ -13,15 +13,8 @@ const navItems = [
 
 export default function Navbar() {
     return (
-        <Headroom
-            style={{
-                WebkitTransition: 'all .5s ease-in-out',
-                MozTransition: 'all .5s ease-in-out',
-                OTransition: 'all .5s ease-in-out',
-                transition: 'all .5s ease-in-out',
-            }}
-        >
-            <nav className="bg-transparent z-50 py-10">
+        <Headroom style={{ zIndex: 50 }}>
+            <nav className="bg-transparent py-10">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
