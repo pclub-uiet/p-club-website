@@ -13,6 +13,7 @@ export default {
       },
       fontFamily: {
         "Roboto": ["Roboto", "sans-serif"],
+        "Lobster": ["Lobster Two", "sans-serif"]
       },
       animation: {
         scroll:

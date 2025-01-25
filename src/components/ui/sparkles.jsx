@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import React, { useId } from "react";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
@@ -7,23 +7,13 @@ import { cn } from "../lib/utils";
 import { motion, useAnimation } from "framer-motion";
 
 export const SparklesCore = (props) => {
-    const {
-        id,
-        className,
-        background,
-        minSize,
-        maxSize,
-        speed,
-        particleColor,
-        particleDensity,
+    const { id, className, background, minSize, maxSize, speed, particleColor, particleDensity,
     } = props;
     const [init, setInit] = useState(false);
     useEffect(() => {
         initParticlesEngine(async (engine) => {
             await loadSlim(engine);
-        }).then(() => {
-            setInit(true);
-        });
+        }).then(() => { setInit(true) });
     }, []);
     const controls = useAnimation();
 
@@ -375,16 +365,12 @@ export const SparklesCore = (props) => {
                                 },
                                 enable: false,
                                 opacity: 1,
-                                rotation: {
-                                    value: 45,
-                                },
+                                rotation: { value: 45 },
                                 width: 1,
                             },
                             links: {
                                 blink: false,
-                                color: {
-                                    value: "#fff",
-                                },
+                                color: { value: "#fff" },
                                 consent: false,
                                 distance: 100,
                                 enable: false,
@@ -392,9 +378,7 @@ export const SparklesCore = (props) => {
                                 opacity: 1,
                                 shadow: {
                                     blur: 5,
-                                    color: {
-                                        value: "#000",
-                                    },
+                                    color: { value: "#000" },
                                     enable: false,
                                 },
                                 triangles: {

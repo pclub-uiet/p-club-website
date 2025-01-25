@@ -2,14 +2,7 @@
 import React, { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export const Lens = ({
-    children,
-    zoomFactor = 1.5,
-    lensSize = 170,
-    isStatic = false,
-    position = { x: 200, y: 150 },
-    hovering,
-    setHovering,
+export const Lens = ({ children, zoomFactor = 1.5, lensSize = 170, isStatic = false, position = { x: 200, y: 150 }, hovering, setHovering,
 }) => {
     const containerRef = useRef(null);
 
@@ -30,7 +23,7 @@ export const Lens = ({
     return (
         (<div
             ref={containerRef}
-            className="relative overflow-hidden rounded-lg z-20"
+            className="relative z-20 rounded-lg overflow-hidden"
             onMouseEnter={() => {
                 setIsHovering(true);
             }}

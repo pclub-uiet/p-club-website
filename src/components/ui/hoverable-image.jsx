@@ -1,9 +1,9 @@
 const HoverableImage = ({ imageUrl }) => {
     return (
-        <div className="relative group overflow-hidden h-full w-full">
+        <div className="relative w-full h-full overflow-hidden group">
             <img
                 src={imageUrl}
-                className="object-cover h-full w-full transition-transform duration-300 group-hover:scale-110"
+                className="group-hover:scale-110 w-full h-full transition-transform duration-300 object-cover"
                 alt="Event Image"
             />
         </div>

@@ -2,7 +2,6 @@ import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState, forwardRef } from "react";
 
-
 const DEFAULT_CHARACTER_SET = Object.freeze("01".split(""));
 
 const getRandomInt = (max) => Math.floor(Math.random() * max);

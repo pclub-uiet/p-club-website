@@ -4,18 +4,12 @@ import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
 import { BentoGridLayout } from "../ui/bento-grid"
 
-export const InfiniteMovingCards = ({
-    items,
-    speed = "fast",
-    pauseOnHover = true,
-    className
+export const InfiniteMovingCards = ({ items, speed = "fast", pauseOnHover = true, className
 }) => {
     const containerRef = React.useRef(null);
     const scrollerRef = React.useRef(null);
 
-    useEffect(() => {
-        addAnimation();
-    }, []);
+    useEffect(() => { addAnimation() }, []);
     const [start, setStart] = useState(false);
     function addAnimation() {
         if (containerRef.current && scrollerRef.current) {
@@ -23,9 +17,7 @@ export const InfiniteMovingCards = ({
 
             scrollerContent.forEach((item) => {
                 const duplicatedItem = item.cloneNode(true);
-                if (scrollerRef.current) {
-                    scrollerRef.current.appendChild(duplicatedItem);
-                }
+                if (scrollerRef.current) scrollerRef.current.appendChild(duplicatedItem);
             });
 
             getDirection();
@@ -40,13 +32,9 @@ export const InfiniteMovingCards = ({
     };
     const getSpeed = () => {
         if (containerRef.current) {
-            if (speed === "fast") {
-                containerRef.current.style.setProperty("--animation-duration", "20s");
-            } else if (speed === "normal") {
-                containerRef.current.style.setProperty("--animation-duration", "40s");
-            } else {
-                containerRef.current.style.setProperty("--animation-duration", "80s");
-            }
+            if (speed === "fast") containerRef.current.style.setProperty("--animation-duration", "20s");
+            else if (speed === "normal") containerRef.current.style.setProperty("--animation-duration", "40s");
+            else containerRef.current.style.setProperty("--animation-duration", "80s");
         }
     };
     return (
@@ -65,10 +53,8 @@ export const InfiniteMovingCards = ({
                 )}>
                 {items.map((item, idx) => (
                     <li
-                        className="max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-theme-one/50 px-8 py-6 md:w-[1000px] w-52"
-                        style={{
-                            background: "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
-                        }}
+                        className="relative flex-shrink-0 px-8 py-6 border border-theme-one/50 border-b-0 rounded-2xl w-52 md:w-[1000px] max-w-full"
+                        style={{ background: "linear-gradient(180deg, var(#1e293b), var(#0f172a)" }}
                         key={idx}>
                         <BentoGridLayout items={item} />
                     </li>

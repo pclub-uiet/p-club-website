@@ -1,39 +1,39 @@
 "use client";
 import React from "react";
-import { SparklesCore } from "../../ui/sparkles";
+import { SectionHeading } from "../../ui/section-heading";
+import { DirectionAwareHover } from "../../ui/direction-aware-hover";
+import { images } from "./aboutusImages";
 
 export function About() {
     return (
-        (<div
-            className="w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-            <h1
-                className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
-                About Us
-            </h1>
-            <div className="w-[40rem] h-40 relative">
-                {/* Gradients */}
-                <div
-                    className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-theme-one to-transparent h-[2px] w-3/4 blur-sm" />
-                <div
-                    className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-theme-one to-transparent h-px w-3/4" />
-                <div
-                    className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-[5px] w-1/4 blur-sm" />
-                <div
-                    className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px w-1/4" />
-
-                {/* Core component */}
-                <SparklesCore
-                    background="transparent"
-                    minSize={0.4}
-                    maxSize={1}
-                    particleDensity={1200}
-                    className="w-full h-full"
-                    particleColor="#FFFFFF" />
-
-                {/* Radial Gradient to prevent sharp edges */}
-                <div
-                    className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        <section id="about">
+            <SectionHeading heading="About Us" />
+            <div id="content-about-us" className="flex gap-3 p-4 md:p-8 h-screen">
+                <ImageGrid />
+                <AboutUsText />
             </div>
-        </div>)
+        </section>
+    );
+}
+
+function ImageGrid() {
+    return (
+        <div className="top-left-image w-1/2 h-full">
+            <div className="gap-4 grid grid-cols-4 grid-rows-4 w-full h-full">
+                {images.map((image) => (
+                    <DirectionAwareHover imageUrl={image.src} className={`${image.colSpan} ${image.rowSpan}`} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function AboutUsText() {
+    return (
+        <div className="top-right-content flex justify-center items-center rounded-lg w-1/2 h-full">
+            <p className="p-4 text-center text-white">
+                We’re more than just a club; we’re a thriving community of innovators, creators, and problem-solvers. At PClub, we bring technology to life through open-source workshops, engaging seminars, intense hackathons, and a variety of fun tech-based games and projects. Whether you're diving into your first lines of code or building your next big project, PClub is here to support your journey
+            </p>
+        </div>
     );
 }

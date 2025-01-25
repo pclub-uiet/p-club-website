@@ -1,16 +1,8 @@
 'use client';
-import {
-    Children,
-    createContext,
-    useContext,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import { Children, createContext, useContext, useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { cn } from '../lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
 
 const CarouselContext = createContext(
     undefined
@@ -298,11 +290,4 @@ function CarouselItem({ children, className }) {
     );
 }
 
-export {
-    Carousel,
-    CarouselContent,
-    CarouselNavigation,
-    CarouselIndicator,
-    CarouselItem,
-    useCarousel,
-};
+export { Carousel, CarouselContent, CarouselNavigation, CarouselIndicator, CarouselItem, useCarousel };

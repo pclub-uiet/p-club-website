@@ -1,37 +1,20 @@
 'use client';
 import { cn } from '../lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import {
-    Children,
-    cloneElement,
-    useEffect,
-    useState,
-    useId,
-} from 'react';
+import { Children, cloneElement, useEffect, useState, useId } from 'react';
 
-export function AnimatedBackground({
-    children,
-    defaultValue,
-    onValueChange,
-    className,
-    transition,
-    enableHover = false,
-}) {
+export function AnimatedBackground({ children, defaultValue, onValueChange, className, transition, enableHover = false }) {
     const [activeId, setActiveId] = useState(null);
     const uniqueId = useId();
 
     const handleSetActiveId = (id) => {
         setActiveId(id);
 
-        if (onValueChange) {
-            onValueChange(id);
-        }
+        if (onValueChange) onValueChange(id);
     };
 
     useEffect(() => {
-        if (defaultValue !== undefined) {
-            setActiveId(defaultValue);
-        }
+        if (defaultValue !== undefined) setActiveId(defaultValue);
     }, [defaultValue]);
 
     return Children.map(children, (child, index) => {
