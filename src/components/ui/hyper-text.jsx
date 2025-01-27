@@ -12,6 +12,7 @@ export const HyperText = forwardRef(
         {
             children,
             className,
+            textClassName,
             duration = 800,
             delay = 0,
             startOnView = false,
@@ -45,7 +46,7 @@ export const HyperText = forwardRef(
         };
 
         useEffect(() => {
-            if (!startOnView) {
+            if (startOnView) {
                 const startTimeout = setTimeout(() => {
                     setIsAnimating(true);
                 }, delay);
@@ -112,7 +113,7 @@ export const HyperText = forwardRef(
                     {displayText.map((letter, index) => (
                         <motion.span
                             key={index}
-                            className={cn("font-sans", letter === " " ? "w-3" : "")}
+                            className={cn("font-sans", letter === " " ? "w-3" : "", textClassName)}
                         >
                             {letter.toUpperCase()}
                         </motion.span>
@@ -127,6 +128,7 @@ HyperText.displayName = "HyperText";
 HyperText.propTypes = {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
+    textClassName: PropTypes.string,
     duration: PropTypes.number,
     delay: PropTypes.number,
     startOnView: PropTypes.bool,

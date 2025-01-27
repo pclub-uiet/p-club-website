@@ -1,43 +1,40 @@
 import { forwardRef } from "react"
 import { CircularCarouselComp } from "../../ui/circular-carousel";
+import { SectionHeading } from "../../ui/section-heading";
 import "./domains.css";
-
-// Forwarding ref for external control
+import { colors } from "./domainsList";
+import { motion } from "framer-motion";
 const CircularCarousel = forwardRef(CircularCarouselComp);
 
-// Colors for the carousel items
-const colors = [
-    "bg-red-400",
-    "bg-orange-400",
-    "bg-yellow-400",
-    "bg-lime-400",
-    "bg-green-400",
-    "bg-cyan-400",
-    "bg-blue-400",
-    "bg-indigo-400",
-    "bg-purple-400",
-    "bg-pink-400",
-];
-
 // Main Domains Component
-function Domains() {
+export default function Domains() {
     return (
-        <div className="w-full h-screen overflow-hidden">
+        <section className="w-full h-screen overflow-hidden select-none" id="domains">
             <div className="relative flex flex-col justify-center items-center h-full">
-                <CircularCarousel>
-                    {Array.from({ length: 10 }).map((_, i) => (
-                        <div
-                            key={i}
-                            className={`flex select-none items-center justify-center rounded w-56 text-sm h-80 text-white font-bold ${colors[i % colors.length]
-                                }`}
-                        >
-                            I am Number {i + 1}
-                        </div>
-                    ))}
-                </CircularCarousel>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}>
+                    <SectionHeading heading="Domains" />
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}>
+                    <CircularCarousel>
+                        {Array.from({ length: 8 }).map((_, i) => (
+                            <div
+                                key={i}
+                                className={`flex select-none items-center justify-center rounded w-56 text-sm h-80 text-white font-bold ${colors[i % colors.length]}`}
+                            >
+                                I am Number {i + 1}
+                            </div>
+                        ))}
+                    </CircularCarousel>
+                </motion.div>
             </div>
-        </div>
+        </section>
     );
 }
-
-export default Domains;

@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "../lib/utils";
 import { string } from "prop-types"
-
 export const DirectionAwareHover = ({ imageUrl, imageClassName, className }) => {
     const ref = useRef(null);
 

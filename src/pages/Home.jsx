@@ -4,9 +4,10 @@ import Domains from "../components/home/domains/Domains"
 function Home() {
     return (
         <main>
+            {/* <section className="h-screen flex justify-center items-center text-white">Hero</section> */}
             <About />
-            <Events />
             <Domains />
+            <Events />
         </main>
     )
 }

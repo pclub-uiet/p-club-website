@@ -3,14 +3,25 @@ import { InfiniteMovingCards } from "../../ui/infinite-moving-cards";
 import { Carousel, CarouselContent, CarouselNavigation, CarouselIndicator, CarouselItem } from '../../ui/carousel';
 import { SectionHeading } from "../../ui/section-heading";
 import { SFD23, SFD24 } from "./eventsList";
+import { motion } from "framer-motion";
 
 export default function Events() {
     return (
-        <section>
+        <section id="events">
             <div
                 className="relative flex flex-col justify-center items-center bg-grid-white/[0.05] bg-black rounded-md antialiased overflow-hidden">
-                <SectionHeading heading="Events" />
-                <div className='relative w-full max-w-5xl'>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}>
+                    <SectionHeading heading="Events" />
+                </motion.div>
+                <motion.div className='relative w-full max-w-5xl'
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6 }}>
                     <Carousel>
                         <CarouselContent>
                             <CarouselItem>
@@ -23,7 +34,7 @@ export default function Events() {
                         <CarouselNavigation alwaysShow />
                         <CarouselIndicator />
                     </Carousel>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

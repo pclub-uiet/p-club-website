@@ -3,21 +3,21 @@ import PropTypes from "prop-types";
 
 const lerp = (start, stop, amt) => (1 - amt) * start + amt * stop;
 
-const ARC_SIZE = 120;
+const ARC_SIZE = 90;
 
-// Handles animations and movement logic for the circular carousel
 const useCarouselMovement = ({ len, onSelect }) => {
-    const indexRef = useRef(0);
-    const prevDegRef = useRef(0);
-    const nextDegRef = useRef(0);
+    const indexRef = useRef(-ARC_SIZE / 2);
+    const prevDegRef = useRef(-ARC_SIZE / 2);
+    const nextDegRef = useRef(-ARC_SIZE / 2);
     const rendering = useRef(false);
-    const [deg, setDeg] = useState(0);
-
+    const [deg, setDeg] = useState(-ARC_SIZE / 2);
+    const maxDeg = -(ARC_SIZE - ARC_SIZE / len);
 
     const move = () => {
         const next = nextDegRef.current;
         const prev = prevDegRef.current;
         const interpolatedDeg = lerp(prev, next, 0.1);
+
         if (interpolatedDeg !== prev) {
             setDeg(interpolatedDeg);
             requestAnimationFrame(move);
@@ -28,14 +28,13 @@ const useCarouselMovement = ({ len, onSelect }) => {
         const index = Math.round(Math.abs(((interpolatedDeg / ARC_SIZE) * len) % len));
         if (index !== indexRef.current) {
             indexRef.current = index;
-            onSelect && onSelect(index);
+            onSelect?.(index);
         }
         prevDegRef.current = interpolatedDeg;
     };
 
     const triggerMove = (delta) => {
         nextDegRef.current += delta;
-        const maxDeg = -(ARC_SIZE - ARC_SIZE / len); // Limit rotation to bounds
         nextDegRef.current = Math.max(nextDegRef.current, maxDeg);
         nextDegRef.current = Math.min(nextDegRef.current, 0);
 
@@ -45,10 +44,9 @@ const useCarouselMovement = ({ len, onSelect }) => {
         }
     };
 
-    return { deg, triggerMove, nextDegRef, indexRef };
+    return { deg, triggerMove, nextDegRef, indexRef, maxDeg };
 };
 
-// Handles pointer (mouse/touch) input for rotating the carousel
 const usePointerControl = ({ len, triggerMove, nextDegRef, onSwapRight, indexRef }) => {
     const handlePointerDown = (e) => {
         const isTouch = e.type === "touchstart";
@@ -68,8 +66,7 @@ const usePointerControl = ({ len, triggerMove, nextDegRef, onSwapRight, indexRef
 
             const anglePerIndex = ARC_SIZE / len;
             const modDeg = nextDegRef.current % anglePerIndex;
-            const correction =
-                Math.abs(modDeg) < anglePerIndex / 2 ? -modDeg : anglePerIndex - Math.abs(modDeg);
+            const correction = Math.abs(modDeg) < anglePerIndex / 2 ? -modDeg : anglePerIndex - Math.abs(modDeg);
             const correctionSign = Math.sign(nextDegRef.current);
 
             if (nextDegRef.current > 0 && onSwapRight && indexRef.current === 0) {
@@ -86,17 +83,12 @@ const usePointerControl = ({ len, triggerMove, nextDegRef, onSwapRight, indexRef
     return { handlePointerDown };
 };
 
-// CircularCarousel Component
 export const CircularCarouselComp = ({ onSelect, onSwapRight, children }, ref) => {
     const len = Children.count(children);
-
-    // Movement and animation logic
     const { deg, triggerMove, nextDegRef, indexRef } = useCarouselMovement({ len, onSelect });
 
-    // Pointer input control
     const { handlePointerDown } = usePointerControl({ len, triggerMove, nextDegRef, onSwapRight, indexRef });
 
-    // Expose `scrollTo` method for external control
     useImperativeHandle(ref, () => ({
         scrollTo: (index) => {
             const targetDeg = -(ARC_SIZE / len) * index;

@@ -39,7 +39,10 @@ export function TextLoop({
     };
 
     return (
-        <div className={cn('relative inline-block whitespace-nowrap', className)}>
+        <div className={cn('relative inline-block whitespace-nowrap', className)}
+            style={{
+            fontFamily:"Roboto"
+        }}>
             <AnimatePresence mode={mode} initial={false}>
                 <motion.div
                     key={currentIndex}

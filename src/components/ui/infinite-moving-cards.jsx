@@ -4,7 +4,7 @@ import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
 import { BentoGridLayout } from "../ui/bento-grid"
 
-export const InfiniteMovingCards = ({ items, speed = "fast", pauseOnHover = true, className
+export const InfiniteMovingCards = ({ items, speed = "slow", pauseOnHover = true, className
 }) => {
     const containerRef = React.useRef(null);
     const scrollerRef = React.useRef(null);
