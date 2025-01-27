@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { InfiniteMovingCards } from "../../ui/infinite-moving-cards";
 import { Carousel, CarouselContent, CarouselNavigation, CarouselIndicator, CarouselItem } from '../../ui/carousel';
 import { SectionHeading } from "../../ui/section-heading";
@@ -8,7 +6,7 @@ import { SFD23, SFD24 } from "./eventsList";
 
 export default function Events() {
     return (
-        <>
+        <section>
             <div
                 className="relative flex flex-col justify-center items-center bg-grid-white/[0.05] bg-black rounded-md antialiased overflow-hidden">
                 <SectionHeading heading="Events" />
@@ -27,6 +25,6 @@ export default function Events() {
                     </Carousel>
                 </div>
             </div>
-        </>
+        </section>
     );
 }

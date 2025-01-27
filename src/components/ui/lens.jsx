@@ -1,6 +1,7 @@
 "use client";;
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { node, number, bool, shape, func } from "prop-types";
 
 export const Lens = ({ children, zoomFactor = 1.5, lensSize = 170, isStatic = false, position = { x: 200, y: 150 }, hovering, setHovering,
 }) => {
@@ -90,3 +91,15 @@ export const Lens = ({ children, zoomFactor = 1.5, lensSize = 170, isStatic = fa
         </div>)
     );
 };
+Lens.propTypes = {
+    children: node.isRequired,
+    zoomFactor: number,
+    lensSize: number,
+    isStatic: bool,
+    position: shape({
+        x: number,
+        y: number,
+    }),
+    hovering: bool,
+    setHovering: func,
+}

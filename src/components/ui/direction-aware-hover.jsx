@@ -1,8 +1,8 @@
 "use client";
-
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "../lib/utils";
+import { string } from "prop-types"
 
 export const DirectionAwareHover = ({ imageUrl, imageClassName, className }) => {
     const ref = useRef(null);
@@ -69,7 +69,7 @@ export const DirectionAwareHover = ({ imageUrl, imageClassName, className }) => 
                         }}>
                         <img
                             alt="image"
-                            className={cn("h-full w-full object-cover scale-[1.15]", imageClassName)}
+                            className={cn("h-full w-full object-cover object-center scale-[1.15]", imageClassName)}
                             src={imageUrl} />
                     </motion.div>
                 </motion.div>
@@ -99,3 +99,9 @@ const variants = {
         x: -20,
     },
 };
+
+DirectionAwareHover.propTypes = {
+    imageUrl: string.isRequired,
+    imageClassName: string,
+    className: string,
+}

@@ -1,10 +1,8 @@
 import { cn } from "../lib/utils";
 import HoverableImage from "./hoverable-image";
+import PropTypes from "prop-types";
 
-const BentoGrid = ({
-    className,
-    children
-}) => {
+const BentoGrid = ({ className, children }) => {
     return (
         (<div
             className={cn(
@@ -14,6 +12,10 @@ const BentoGrid = ({
             {children}
         </div>)
     );
+};
+BentoGrid.propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node
 };
 
 const BentoGridItem = ({
@@ -34,6 +36,10 @@ const BentoGridItem = ({
         </div>
     );
 };
+BentoGridItem.propTypes = {
+    className: PropTypes.string,
+    imageUrl: PropTypes.string.isRequired
+}
 
 export function BentoGridLayout({ items }) {
     return (
@@ -47,4 +53,7 @@ export function BentoGridLayout({ items }) {
             ))}
         </BentoGrid>)
     );
+}
+BentoGridLayout.propTypes = {
+    items: PropTypes.array.isRequired
 }

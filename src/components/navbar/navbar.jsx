@@ -19,7 +19,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="bg-theme-one mx-auto rounded-full max-w-lg text-theme-two"
+                    className="bg-gradient-to-r from-theme-one via-theme-four to-theme-five mx-auto rounded-full max-w-lg text-theme-two"
                 >
                     <div className="flex justify-between items-center mx-auto px-4 py-4 container">
                         <ul className="flex justify-around items-center gap-2 w-full">

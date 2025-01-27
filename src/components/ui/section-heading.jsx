@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "../lib/utils";
+import { string } from "prop-types";
 
 export const SectionHeading = ({ className, heading }) => {
     return (
@@ -20,3 +21,7 @@ export const SectionHeading = ({ className, heading }) => {
         </div>
     );
 };
+SectionHeading.propTypes = {
+    className: string,
+    heading: string.isRequired
+}

@@ -1,5 +1,5 @@
 "use client";
-
+import { arrayOf, oneOf, bool, string, shape } from "prop-types";
 import { cn } from "../lib/utils";
 import React, { useEffect, useState } from "react";
 import { BentoGridLayout } from "../ui/bento-grid"
@@ -9,7 +9,7 @@ export const InfiniteMovingCards = ({ items, speed = "fast", pauseOnHover = true
     const containerRef = React.useRef(null);
     const scrollerRef = React.useRef(null);
 
-    useEffect(() => { addAnimation() }, []);
+    useEffect(() => { addAnimation() });
     const [start, setStart] = useState(false);
     function addAnimation() {
         if (containerRef.current && scrollerRef.current) {
@@ -63,3 +63,12 @@ export const InfiniteMovingCards = ({ items, speed = "fast", pauseOnHover = true
         </div>
     );
 };
+InfiniteMovingCards.propTypes = {
+    items: arrayOf(arrayOf(shape({
+        imageUrl: string.isRequired,
+        className: string.isRequired,
+    }))).isRequired,
+    speed: oneOf(["fast", "normal", "slow"]).isRequired,
+    pauseOnHover: bool,
+    className: string,
+}

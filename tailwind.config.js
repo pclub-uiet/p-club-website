@@ -10,6 +10,8 @@ export default {
         "theme-one": "#2cff05",
         "theme-two": "black",
         "theme-three": "#2b332a",
+        "theme-four": "#1fd655",
+        "theme-five": "#0d9f3d",
       },
       fontFamily: {
         "Roboto": ["Roboto", "sans-serif"],

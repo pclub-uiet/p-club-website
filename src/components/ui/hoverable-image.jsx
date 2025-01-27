@@ -1,3 +1,5 @@
+import { string } from 'prop-types';
+
 const HoverableImage = ({ imageUrl }) => {
     return (
         <div className="relative w-full h-full overflow-hidden group">
@@ -9,5 +11,7 @@ const HoverableImage = ({ imageUrl }) => {
         </div>
     );
 };
-
+HoverableImage.propTypes = {
+    imageUrl: string.isRequired
+}
 export default HoverableImage;

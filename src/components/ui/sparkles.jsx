@@ -1,14 +1,14 @@
 "use client";
-import React, { useId } from "react";
+import { useId } from "react";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "../lib/utils";
 import { motion, useAnimation } from "framer-motion";
+import { number, string } from "prop-types";
 
-export const SparklesCore = (props) => {
-    const { id, className, background, minSize, maxSize, speed, particleColor, particleDensity,
-    } = props;
+export const SparklesCore = ({ id, className, background, minSize, maxSize, speed, particleColor, particleDensity,
+}) => {
     const [init, setInit] = useState(false);
     useEffect(() => {
         initParticlesEngine(async (engine) => {
@@ -403,3 +403,13 @@ export const SparklesCore = (props) => {
         </motion.div>)
     );
 };
+SparklesCore.propTypes = {
+    id: number,
+    className: string,
+    background: string,
+    minSize: number,
+    maxSize: number,
+    speed: number,
+    particleColor: string,
+    particleDensity: number
+}

@@ -1,6 +1,7 @@
 import { cn } from "../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState, forwardRef } from "react";
+import PropTypes from "prop-types";
 
 const DEFAULT_CHARACTER_SET = Object.freeze("01".split(""));
 
@@ -118,6 +119,17 @@ export const HyperText = forwardRef(
                     ))}
                 </AnimatePresence>
             </motion.div>
-        );
+        )
     }
 );
+
+HyperText.displayName = "HyperText";
+HyperText.propTypes = {
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    duration: PropTypes.number,
+    delay: PropTypes.number,
+    startOnView: PropTypes.bool,
+    animateOnHover: PropTypes.bool,
+    characterSet: PropTypes.arrayOf(PropTypes.string)
+};

@@ -3,10 +3,9 @@ import { Children, createContext, useContext, useEffect, useRef, useState } from
 import { motion, useMotionValue } from 'framer-motion';
 import { cn } from '../lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import PropTypes from 'prop-types';
 
-const CarouselContext = createContext(
-    undefined
-);
+const CarouselContext = createContext(undefined);
 
 function useCarousel() {
     const context = useContext(CarouselContext);
@@ -16,7 +15,7 @@ function useCarousel() {
     return context;
 }
 
-function CarouselProvider({
+export function CarouselProvider({
     children,
     initialIndex = 0,
     onIndexChange,
@@ -49,8 +48,14 @@ function CarouselProvider({
     );
 }
 
+CarouselProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+    initialIndex: PropTypes.number,
+    onIndexChange: PropTypes.func,
+    disableDrag: PropTypes.bool,
+};
 
-function Carousel({
+export function Carousel({
     children,
     className,
     initialIndex = 0,
@@ -82,7 +87,16 @@ function Carousel({
     );
 }
 
-function CarouselNavigation({
+Carousel.propTypes = {
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    initialIndex: PropTypes.number,
+    index: PropTypes.number,
+    onIndexChange: PropTypes.func,
+    disableDrag: PropTypes.bool,
+};
+
+export function CarouselNavigation({
     className,
     classNameButton,
     alwaysShow,
@@ -150,8 +164,13 @@ function CarouselNavigation({
     );
 }
 
+CarouselNavigation.propTypes = {
+    className: PropTypes.string,
+    classNameButton: PropTypes.string,
+    alwaysShow: PropTypes.bool,
+};
 
-function CarouselIndicator({
+export function CarouselIndicator({
     className,
     classNameButton,
 }) {
@@ -185,8 +204,12 @@ function CarouselIndicator({
     );
 }
 
+CarouselIndicator.propTypes = {
+    className: PropTypes.string,
+    classNameButton: PropTypes.string,
+};
 
-function CarouselContent({
+export function CarouselContent({
     children,
     className,
     transition,
@@ -277,7 +300,13 @@ function CarouselContent({
     );
 }
 
-function CarouselItem({ children, className }) {
+CarouselContent.propTypes = {
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    transition: PropTypes.object,
+};
+
+export function CarouselItem({ children, className }) {
     return (
         <motion.div
             className={cn(
@@ -290,4 +319,7 @@ function CarouselItem({ children, className }) {
     );
 }
 
-export { Carousel, CarouselContent, CarouselNavigation, CarouselIndicator, CarouselItem, useCarousel };
+CarouselItem.propTypes = {
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+};
