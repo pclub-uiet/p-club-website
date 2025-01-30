@@ -1,14 +1,14 @@
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-export function useAnimatedCanvas({ frames }) {
+export function useAnimatedCanvas({ frames, containerRef }) {
   const canvasRef = useRef(null);
-  const [images, setImages] = useState([]);
   const imageSeqRef = useRef({ frame: 1 });
+  const imagesRef = useRef([]);
 
   useGSAP(() => {
     const canvas = canvasRef.current;
@@ -19,14 +19,14 @@ export function useAnimatedCanvas({ frames }) {
     frames.forEach((src) => {
       const img = new Image();
       img.src = src;
-      setImages((prev) => [...prev, img]);
+      imagesRef.current.push(img);
     });
 
     // Render function
     const render = () => {
       const currentFrame = Math.round(imageSeqRef.current.frame);
-      if (images[currentFrame]) {
-        const img = images[currentFrame];
+      if (imagesRef.current[currentFrame]) {
+        const img = imagesRef.current[currentFrame];
         const scale = Math.max(
           canvas.width / img.width,
           canvas.height / img.height,
@@ -66,10 +66,10 @@ export function useAnimatedCanvas({ frames }) {
         trigger: canvas,
         start: "top top",
         end: "300% top",
-        scroller: "#main",
+        scroller: containerRef.current,
         scrub: 0.5,
         pin: true,
-        markers: true,
+        markers: import.meta.env.NODE_ENV === "developement",
       },
       onUpdate: render,
     });
