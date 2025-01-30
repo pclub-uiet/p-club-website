@@ -1,14 +1,15 @@
-import React from "react";
-import { GSAP } from "./component/GSAP";
-import AnimatedCanvas from "./component/AnimatedCanvas";
-
-const App = () => {
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Navbar from './components/navbar/navbar';
+function App() {
   return (
-    <div id="main">
-      <GSAP />
-      <AnimatedCanvas />
-    </div>
-  );
-};
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </>
+  )
+}
 
-export default App;
+export default App
