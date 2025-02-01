@@ -71,7 +71,7 @@ export function useAnimatedCanvas({ frames, containerRef, onFrameRender }) {
         scroller: containerRef.current,
         scrub: 0.5,
         pin: true,
-        markers: import.meta.env.NODE_ENV === "developement",
+        markers: import.meta.env.VITE_NODE_ENV === "development",
       },
       onUpdate: render,
       onStart: () => setIsScrolled(false),
