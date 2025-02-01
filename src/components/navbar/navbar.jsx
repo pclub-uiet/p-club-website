@@ -13,7 +13,7 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <Headroom style={{ zIndex: 100 }} className="fixed top-5 left-1/2">
+    <Headroom className="fixed top-5 left-[calc(50%-8vw)] z-[100]">
       <nav className="bg-transparent py-10">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -42,4 +42,3 @@ export default function Navbar() {
     </Headroom>
   );
 }
-
