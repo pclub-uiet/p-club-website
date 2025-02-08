@@ -4,11 +4,11 @@ import { HyperText } from "../ui/hyper-text";
 import Headroom from "react-headroom";
 
 const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Domains', href: '#domains' },
-    { name: 'Events', href: '#events' },
-    { name: 'Team', href: '#team' },
-    { name: 'Contact', href: '#contact' },
+  { name: "About", href: "#about" },
+  { name: "Domains", href: "#domains" },
+  { name: "Events", href: "#events" },
+  { name: "Team", href: "#team" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
