@@ -14,7 +14,7 @@ const navItems = [
 export default function Navbar() {
     return (
         <Headroom style={{ zIndex: 50 }}>
-            <nav className="bg-transparent py-10">
+            <nav className="bg-transparent py-10 hidden sm:block">
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}

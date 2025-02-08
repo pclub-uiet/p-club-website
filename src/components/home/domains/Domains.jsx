@@ -27,13 +27,14 @@ export default function Domains() {
                         {Array.from({ length: 8 }).map((_, i) => (
                             <div
                                 key={i}
-                                className={`flex select-none items-center justify-center rounded w-56 text-sm h-80 text-white font-bold ${colors[i % colors.length]}`}
+                                className={`flex select-none items-center justify-center rounded lg:w-72 w-56 text-sm lg:h-80 h-64 text-white font-bold ${colors[i % colors.length]}`}
                             >
                                 I am Number {i + 1}
                             </div>
                         ))}
                     </CircularCarousel>
                 </motion.div>
+                <p className="mt-10 font-light font-Roboto text-sm text-white">Drag/Swipe Horizontally →</p>
             </div>
         </section>
     );

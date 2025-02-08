@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const lerp = (start, stop, amt) => (1 - amt) * start + amt * stop;
 
-const ARC_SIZE = 90;
+const ARC_SIZE = 240;
 
 const useCarouselMovement = ({ len, onSelect }) => {
     const indexRef = useRef(-ARC_SIZE / 2);
@@ -97,7 +97,7 @@ export const CircularCarouselComp = ({ onSelect, onSwapRight, children }, ref) =
     }));
 
     return (
-        <div className="relative w-screen h-80 root">
+        <div className="relative w-screen h-64 lg:h-80 root">
             <div
                 className="left-0 absolute w-full h-[300%]"
                 onMouseDown={handlePointerDown}
