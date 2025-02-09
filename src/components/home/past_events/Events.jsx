@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function Events() {
     return (
-        <section id="events">
+        <section id="recap">
             <div
                 className="relative flex flex-col justify-center items-center bg-grid-white/[0.05] bg-black rounded-md antialiased overflow-hidden">
                 <motion.div
@@ -15,7 +15,7 @@ export default function Events() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}>
-                    <SectionHeading heading="Events" />
+                    <SectionHeading heading="Recap" />
                 </motion.div>
                 <motion.div className='relative w-full max-w-5xl'
                     initial={{ opacity: 0, y: 50 }}

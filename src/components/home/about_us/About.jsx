@@ -7,7 +7,7 @@ import { HyperText } from "../../ui/hyper-text"
 import { images } from "./aboutusImages";
 import { motion } from "framer-motion";
 
-export function About() {
+export default function About() {
     return (
         <section id="about">
             <motion.div
@@ -105,7 +105,7 @@ function MagneticNested() {
 
     return (
         <Magnetic
-            intensity={0.5}
+            intensity={0.3}
             springOptions={springOptions}
             actionArea='global'
             range={200}
@@ -113,7 +113,7 @@ function MagneticNested() {
             <button className='inline-flex items-center bg-theme-one hover:bg-theme-one px-4 py-2 border border-theme-three rounded-lg text-sm text-zinc-900 transition-all duration-500'
             >
                 <Magnetic
-                    intensity={0.2}
+                    intensity={0.1}
                     springOptions={springOptions}
                     actionArea='global'
                     range={200}
