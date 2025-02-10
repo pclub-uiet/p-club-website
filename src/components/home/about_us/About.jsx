@@ -7,17 +7,17 @@ import { HyperText } from "../../ui/hyper-text"
 import { images } from "./aboutusImages";
 import { motion } from "framer-motion";
 
-export function About() {
+export default function About() {
     return (
         <section id="about">
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-300px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}>
                 <SectionHeading heading="About Us" />
             </motion.div>
-            <div className="flex my-10 px-4 h-[50vh] content overflow-hidden">
+            <div className="flex lg:flex-row flex-col my-10 px-4 lg:h-[50vh] overflow-hidden content">
                 <AboutUsText />
                 <ImageGrid />
             </div>
@@ -27,12 +27,12 @@ export function About() {
 
 function ImageGrid() {
     return (
-        <motion.div className="w-1/2 h-full"
+        <motion.div className="mt-10 lg:mt-0 lg:w-1/2 h-96 lg:h-full"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-250px" }}
             transition={{ duration: 0.6 }}>
-            <div className="gap-4 grid grid-cols-4 grid-rows-4 w-full h-full">
+            <div className="gap-4 grid grid-cols-2 lg:grid-cols-4 grid-rows-2 lg:grid-rows-4 w-full h-full">
                 {images.map((image, idx) => (
                     <DirectionAwareHover key={idx} imageUrl={image.src} className={`${image.colSpan} ${image.rowSpan}`} />
                 ))}
@@ -42,13 +42,13 @@ function ImageGrid() {
 }
 function AboutUsText() {
     return (
-        <motion.div className="flex flex-col justify-center gap-4 px-4 rounded-lg w-1/2 h-full text-white"
+        <motion.div className="flex flex-col justify-center gap-4 px-4 rounded-lg lg:w-1/2 lg:h-full text-white"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-250px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}>
-            <div className='flex flex-wrap font-medium text-4xl whitespace-pre-wrap '>
-                <span className="font-Roboto font-light">
+            <div className='flex flex-wrap font-medium text-4xl whitespace-pre-wrap'>
+                <span className="font-light font-Roboto">
                     We&apos;re a
                     <span className="inline-block relative mx-1 font-extrabold stroke-theme-one">
                         thriving
@@ -91,7 +91,7 @@ function AboutUsText() {
                     <span className="font-extrabold font-Lobster">Engineers</span>
                 </TextLoop>
             </div>
-            <p className="text-lg font-Roboto font-extralight text-white">
+            <p className="font-extralight font-Roboto text-lg text-white">
                 At PClub, we bring technology to life through open-source workshops, engaging seminars, intense hackathons, and a variety of fun tech-based games and projects.
             </p>
             <div className="self-start">
@@ -105,15 +105,15 @@ function MagneticNested() {
 
     return (
         <Magnetic
-            intensity={0.5}
+            intensity={0.3}
             springOptions={springOptions}
             actionArea='global'
             range={200}
         >
-            <button className='inline-flex items-center border-theme-three bg-theme-one hover:bg-theme-one px-4 py-2 border rounded-lg text-sm text-zinc-900 transition-all duration-500'
+            <button className='inline-flex items-center bg-theme-one hover:bg-theme-one px-4 py-2 border border-theme-three rounded-lg text-sm text-zinc-900 transition-all duration-500'
             >
                 <Magnetic
-                    intensity={0.2}
+                    intensity={0.1}
                     springOptions={springOptions}
                     actionArea='global'
                     range={200}

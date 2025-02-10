@@ -14,7 +14,6 @@ export const DirectionAwareHover = ({ imageUrl, imageClassName, className }) => 
         if (!ref.current) return;
 
         const direction = getDirection(event, ref.current);
-        console.log("direction", direction);
         switch (direction) {
             case 0:
                 setDirection("top");
@@ -50,18 +49,18 @@ export const DirectionAwareHover = ({ imageUrl, imageClassName, className }) => 
             onMouseEnter={handleMouseEnter}
             ref={ref}
             className={cn(
-                "bg-transparent rounded-lg overflow-hidden group/card",
+                "bg-transparent  h-full w-fullrounded-lg overflow-hidden group/card",
                 className
             )}>
             <AnimatePresence mode="wait">
                 <motion.div
-                    className="relative"
+                    className="relative h-full w-full"
                     initial="initial"
                     whileHover={direction}
                     exit="exit">
                     <motion.div
                         variants={variants}
-                        className="relative"
+                        className="relative h-full w-full"
                         transition={{
                             duration: 0.2,
                             ease: "easeOut",
