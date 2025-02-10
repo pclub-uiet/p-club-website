@@ -7,32 +7,39 @@
     "position": "Team Lead"
   },
   {
+    "name": "Krishna",
+    "image": "",
+    "github": "https://github.com/staru09",
+    "linkedIn": "https://www.linkedin.com/in/aru-sharma-12a3a41b3/",
+    "position": "Web Dev Lead"
+  },
+  {
     "name": "Samridhi Garg",
     "image": "https://drive.google.com/file/d/1bPVBNXwEVik4dPDkSGlIYu-5_OYQB0CO/view?usp=drivesdk",
     "github": "https://github.com/samridhixgarg",
     "linkedIn": "https://www.linkedin.com/in/samridhi-garg-322659257",
-    "position": ""
+    "position": "Team member"
   },
   {
     "name": "Arindam Gupta",
     "image": "",
     "github": "https://github.com/Ariii84",
     "linkedIn": "https://www.linkedin.com/in/arindam-gupta-a49921286",
-    "position": ""
+    "position": "Team member"
   },
   {
     "name": "Aashima Mittal",
     "image": "",
     "github": "https://github.com/Aashima77",
     "linkedIn": "https://www.linkedin.com/in/aashima-mittal-550a70291/",
-    "position": ""
+    "position": "Team member"
   },
   {
     "name": "Mudit Kumar",
     "image": "",
     "github": "https://github.com/greedy-wudpeckr",
     "linkedIn": "https://www.linkedin.com/in/mudit-kumar-80ab63255",
-    "position": ""
+    "position": "Team member"
   },
   {
     "name": "Ankit Kumar",
@@ -53,7 +60,7 @@
     "image": "https://drive.google.com/file/d/1N5xrzMrLbTdJHud2PziEidqlaBOYsVaW/view?usp=drive_link",
     "github": "https://github.com/Anuragcr07",
     "linkedIn": "https://www.linkedin.com/in/anurag-a0342827b/",
-    "position": ""
+    "position": "Team member"
   },
   {
     "name": "Hitanshu Bansal",
@@ -95,6 +102,6 @@
     "image": "https://drive.google.com/file/d/143bix92s0C1WaxaMHyd4H6lg9sIu3W9k/view?usp=sharing",
     "github": "https://github.com/abhinavraajput",
     "linkedIn": "https://www.linkedin.com/in/abhinav-singh-2b8334230/",
-    "position": ""
+    "position": "Team member"
   }
 ]

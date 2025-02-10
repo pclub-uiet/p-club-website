@@ -18,6 +18,8 @@ export const useHorizontalScroll = (containerRef, sections) => {
         scrub: 1,
         snap: 1 / (sections.length - 1),
         end: () => "+=" + containerRef.current.offsetWidth,
+        // markers: true,
+        start: "top 20%",
       },
     });
   });
