@@ -1,0 +1,16 @@
+.root {
+    --height: 40vh;
+    --origin: calc(var(--height) * 5);
+}
+
+@media screen and (max-height: 800px) {
+    .root {
+        --height: 46vh;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .root {
+        --height: 46vh;
+    }
+}
